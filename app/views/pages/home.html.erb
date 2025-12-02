@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mt-5">
+  <h1 class="text-center mb-3">Snap Bite AI</h1>
+
+  <%= form_with url: ask_path, method: :post, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :question, "O que você quer comer?" %>
+      <%= f.text_area :question, rows: 3, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Perguntar", class: "btn btn-primary w-100" %>
+  <% end %>
+</div>
