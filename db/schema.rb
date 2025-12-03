@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_02_180625) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_03_125512) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_02_180625) do
     t.bigint "conversation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -54,5 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_02_180625) do
 
   add_foreign_key "conversations", "users"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "restaurants", "users"
 end

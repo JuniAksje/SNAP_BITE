@@ -1,12 +1,12 @@
 <div class="container mt-5">
-  <h1 class="text-center mb-3">Snap Bite AI</h1>
+  <h1 class="text-center mb-3">IA de Restaurantes</h1>
+  <p class="text-center mb-4">
+    Faça login, escolha um restaurante e comece um chat com a IA para receber recomendações.
+  </p>
+  <%= button_to "Começar chat com a IA", conversations_path, method: :post, class: "btn btn-primary" %>
 
-  <%= form_with url: ask_path, method: :post, local: true do |f| %>
-    <div class="mb-3">
-      <%= f.label :question, "O que você quer comer?" %>
-      <%= f.text_area :question, rows: 3, class: "form-control" %>
-    </div>
-
-    <%= f.submit "Perguntar", class: "btn btn-primary w-100" %>
-  <% end %>
+  <div class="d-flex justify-content-center gap-3">
+    <%= link_to "Ver Restaurantes", restaurants_path, class: "btn btn-primary" %>
+    <%= link_to "Meus Chats", conversations_path, class: "btn btn-outline-primary" %>
+  </div>
 </div>
