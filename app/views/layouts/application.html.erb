@@ -11,6 +11,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+
+    <div class="container-fluid">
+      <div class="row" data-controller="toggle">
+        <!-- SIDEBAR -->
+        <nav class="col-md-2 sidebar pt-3 bg-light d-none d-md-block" data-toggle-target="hideable">
+          <%= render "shared/sidenav", restaurants: @restaurants %>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="col-md-10 my-4">
+          <%= render "shared/flashes" %>
+
+          <!-- Botão para abrir a sidebar em telas pequenas -->
+          <%= link_to "#",
+                      class: "d-md-none nav-link text-dark mb-3",
+                      data: { action: "click->toggle#call", toggle_target: "show" } do %>
+            <i class="fa-regular fa-square-caret-right"></i>
+            Abrir menu
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
