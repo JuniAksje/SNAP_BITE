@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <%= link_to "← Voltar para a página inicial", root_path, class: "btn btn-link p-0 mb-3" %>
+  <h1 class="mb-3">Restaurantes</h1>
+
+  <ul class="list-group">
+    <% @restaurants.each do |restaurant| %>
+      <li class="list-group-item">
+        <strong><%= restaurant.city %></strong><br>
+        <%= restaurant.content.split("\n").first %>
+      </li>
+    <% end %>
+  </ul>
+</div>

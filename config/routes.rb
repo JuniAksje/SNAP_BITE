@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   post "ask", to: "pages#ask"
+
+  resources :restaurants, only: [:index, :show] do
+  resources :conversations, only: :create
+  end
+
+  resources :conversations, only: [:index, :show, :create] do
+  resources :messages, only: :create
+  end
 end
