@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
     @message.role         = "user"
 
     if @message.save
-      @conversation.generate_title_from_first_message
 
       # >>> AQUI muda: contexto com TODOS os restaurantes <<<
       restaurants_text = Restaurant.all.map do |r|
@@ -20,24 +19,29 @@ class MessagesController < ApplicationController
       context_text = "Esses são os restaurantes cadastrados na aplicação:\n\n#{restaurants_text}"
       instructions = SYSTEM_PROMPT + "\n\n" + context_text
 
-      chat     = RubyLLM.chat
-      response = chat.with_instructions(instructions).ask(@message.content)
+      #chat     = RubyLLM.chat
+      #response = chat.with_instructions(instructions).ask(@message.content)
 
-      Message.create!(
-        conversation: @conversation,
-        user:         current_user,
-        role:         "assistant",
-        content:      response.content
-      )
+        @chat     = RubyLLM.chat
+        build_conversation_history
+        response = @chat.with_instructions(instructions).ask(@message.content)
 
-      redirect_to conversation_path(@conversation)
-    else
-      @messages = @conversation.messages.order(:created_at)
-      render "conversations/show", status: :unprocessable_entity
+        @conversation.messages.create(role: "assistant", content: response.content, user: current_user)
+        @conversation.generate_title_from_first_message
+
+        redirect_to conversation_path(@conversation)
+      else
+        render "chats/show", status: :unprocessable_entity
     end
   end
 
   private
+
+  def build_conversation_history
+    @conversation.messages.each do |message|
+    @chat.add_message(message)
+    end
+  end
 
   def message_params
     params.require(:message).permit(:content)
