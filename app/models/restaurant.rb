@@ -1,5 +1,4 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
-  has_many :conversation
-
+  has_many :conversations
 end

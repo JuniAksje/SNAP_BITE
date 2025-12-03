@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <%= link_to "← Voltar para a página inicial", root_path, class: "btn btn-link p-0 mb-3" %>
+
+  <h1 class="mb-3"><%= @conversation.title.presence || "Chat de restaurantes" %></h1>
+
+  <div class="border rounded p-3" style="min-height: 200px;">
+    <% if @messages.any? %>
+      <% @messages.each do |message| %>
+        <p class="mb-2">
+          <strong><%= message.role == "user" ? "Você" : "IA" %>:</strong>
+          <%= simple_format(message.content) %>
+        </p>
+      <% end %>
+    <% else %>
+      <p class="text-muted mb-3">
+        Pergunte algo aqui.
+      </p>
+    <% end %>
+
+    <%= form_with model: [@conversation, @message], local: true do |f| %>
+      <div class="mb-2">
+        <%= f.label :content, "Sua mensagem" %>
+        <%= f.text_area :content, rows: 3, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Enviar", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
