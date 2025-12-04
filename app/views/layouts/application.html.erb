@@ -15,36 +15,35 @@
   <body>
     <%= render "shared/navbar" %>
 
-    <div class="banner">
-  <div class="hero-content">
-    <h1 class="snapbite-title">Desfrute a cidade!</h1>
-    <p>Escolha em qual pérola da cidade viver uma experiência gastronômica ideal para você!</p>
-    <div class="button-group">
-      <%= link_to "Ver Restaurantes", restaurants_path, class: "btn btn-primary" %>
-      <%= link_to "Meus Chats", conversations_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
-
 
     <div class="container-fluid">
       <div class="row" data-controller="toggle">
         <!-- SIDEBAR -->
-        <nav class="col-md-2 sidebar pt-3 bg-light d-none d-md-block" data-toggle-target="hideable">
+        <nav class="col-md-2 sidebar pt-3 bg-light" data-toggle-target="hideable">
           <%= render "shared/sidenav", restaurants: @restaurants %>
         </nav>
 
         <!-- CONTEÚDO PRINCIPAL -->
         <div class="col-md-10 my-4 main-content">
-          <%= render "shared/flashes" %>
-
           <!-- Botão para abrir a sidebar em telas pequenas -->
           <%= link_to "#",
-                      class: "d-md-none nav-link text-dark mb-3",
-                      data: { action: "click->toggle#call", toggle_target: "show" } do %>
-            <i class="fa-regular fa-square-caret-right"></i>
-            Abrir menu
+                      class: "d-none nav-link text-dark mb-3",
+                      data: { action: "click->toggle#toggleSidebar", toggle_target: "show" } do %>
+            <i class="fa-regular fa-square-caret-right sidebar-expanded"></i>
           <% end %>
+          <div class="banner">
+            <div class="hero-content">
+              <h1 class="snapbite-title">Desfrute a cidade!</h1>
+              <p>Escolha em qual pérola da cidade viver uma experiência gastronômica ideal para você!</p>
+              <div class="button-group">
+                <%= link_to "Ver Restaurantes", restaurants_path, class: "btn btn-primary" %>
+                <%= link_to "Meus Chats", conversations_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+          <%= render "shared/flashes" %>
+
+
 
           <%= yield %>
         </div>

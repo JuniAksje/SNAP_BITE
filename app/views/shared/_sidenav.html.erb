@@ -1,15 +1,18 @@
 <ul class="sidenav nav flex-column" data-toggle-target="sidebar">
   <li class="nav-item">
-    <%# <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
-      <%# <i class="fa-regular fa-square-caret-left"></i> %>
-    <%# <% end %> 
+    <%= link_to "#",
+      class: "nav-link text-dark",
+      data: { action: "click->toggle#toggleSidebar" } do %>
+        <i class="fa-solid fa-square-caret-left sidebar-icon"></i>
+    <% end %>
   </li>
 
-  <% restaurants.each do |restaurant| %>
-    <% bg = @city_backgrounds[restaurant.city] %>
-    <li class="nav-item sidebar"
-      style="background-image: url('<%= asset_path(bg) %>')">
-      <%= link_to restaurant.city, restaurant_path(restaurant), class: "nav-link text-dark" %>
-    </li>
-  <% end %>
+    <% restaurants.each do |restaurant| %>
+      <% bg = @city_backgrounds[restaurant.city] %>
+      <li class="nav-item sidebar"
+        style="background-image: url('<%= asset_path(bg) %>')">
+        <%= link_to restaurant.city, restaurant_path(restaurant), class: "nav-link text-dark" %>
+      </li>
+    <% end %>
+
 </ul>
