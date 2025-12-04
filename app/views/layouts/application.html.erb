@@ -8,10 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <%= render "shared/navbar" %>
+
+    <div class="banner">
+  <div class="hero-content">
+    <h1 class="snapbite-title">Desfrute a cidade!</h1>
+    <p>Escolha em qual pérola da cidade viver uma experiência gastronômica ideal para você!</p>
+    <div class="button-group">
+      <%= link_to "Ver Restaurantes", restaurants_path, class: "btn btn-primary" %>
+      <%= link_to "Meus Chats", conversations_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
 
     <div class="container-fluid">
       <div class="row" data-controller="toggle">
@@ -21,7 +35,7 @@
         </nav>
 
         <!-- CONTEÚDO PRINCIPAL -->
-        <div class="col-md-10 my-4">
+        <div class="col-md-10 my-4 main-content">
           <%= render "shared/flashes" %>
 
           <!-- Botão para abrir a sidebar em telas pequenas -->
