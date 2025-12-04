@@ -1,0 +1,37 @@
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: rgba(255,255,255,0.95);
+  z-index: 10;
+  padding-top: 20px;
+  transition: width 0.3s ease;
+}
+
+/* Sidebar fechada */
+.sidebar-closed {
+  width: 0;
+  overflow: hidden;
+}
+
+/* Expande o conteúdo ao fechar a sidebar */
+.main-content {
+  margin-left: 240px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.expand {
+  margin-left: 0; /* ocupa toda largura da tela */
+}
+
+/* Banner volta a ocupar toda tela ao fechar a sidebar */
+.banner {
+  transition: padding-left 0.3s ease;
+  padding-left: 240px;
+}
+
+.banner.full-width {
+  padding-left: 0;
+}
