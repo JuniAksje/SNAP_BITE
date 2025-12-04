@@ -13,4 +13,5 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.create!(user: current_user)
     redirect_to conversation_path(@conversation)
   end
+
 end
