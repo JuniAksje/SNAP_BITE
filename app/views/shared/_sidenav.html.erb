@@ -1,11 +1,13 @@
 <ul class="position-sticky sticky-top nav flex-column">
   <li class="nav-item">
-    <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
-      <i class="fa-regular fa-square-caret-left"></i>
-    <% end %>
+    <%# <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
+      <%# <i class="fa-regular fa-square-caret-left"></i> %>
+    <%# <% end %> 
   </li>
   <% restaurants.each do |restaurant| %>
-    <li class="nav-item">
+    <% bg = @city_backgrounds[restaurant.city] %>
+    <li class="nav-item sidebar"
+      style="background-image: url('<%= asset_path(bg) %>')">
       <%= link_to restaurant.city, restaurant_path(restaurant), class: "nav-link text-dark" %>
     </li>
   <% end %>
