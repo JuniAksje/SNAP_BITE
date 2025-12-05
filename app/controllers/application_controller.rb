@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   def set_restaurants_sidebar
     @city_backgrounds = {
     "São Paulo" => "sao_paulo.jpg",
-    "Rio de Janeiro" => "rio.jpg",
+    "Rio de Janeiro" => "rio.jpeg",
     "Belo Horizonte" => "bh.jpg",
     "Salvador" => "salvador.jpg",
     "Porto Alegre" => "porto_alegre.jpg",
-    "Recife" => "recife.jpg",
+    "Recife" => "recife.jpeg",
     "Fortaleza" => "fortaleza.jpg",
     "Curitiba" => "curitiba.jpg",
     "Manaus" => "manaus.jpg",
