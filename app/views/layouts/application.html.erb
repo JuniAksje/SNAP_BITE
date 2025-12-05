@@ -3,6 +3,7 @@
   <head>
     <title>SnapBite</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,31 +11,44 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <!-- Classe dinâmica no body: controller-action -->
+  <body class="<%= "#{controller_name}-#{action_name}" %>" style="background-color:#f7f1e7 !important;">
+
     <%= render "shared/navbar" %>
 
-    <div class="container-fluid">
-      <div class="row" data-controller="toggle">
-        <!-- SIDEBAR -->
-        <nav class="col-md-2 sidebar pt-3 bg-light d-none d-md-block" data-toggle-target="hideable">
-          <%= render "shared/sidenav", restaurants: @restaurants %>
-        </nav>
+    <!-- CONTAINER PRINCIPAL JÁ COM FUNDO BEGE -->
+    <div class="container-fluid p-0" style="background-color:#f7f1e7 !important;">
+      <div class="row" data-controller="toggle" style="background-color:#f7f1e7 !important;">
+
+        <!-- SIDEBAR — só aparece nas páginas do chat -->
+        <% if controller_name == "conversations" %>
+          <nav class="col-md-2 sidebar pt-3 d-none d-md-block" data-toggle-target="hideable"
+               style="background-color:#f7f1e7 !important;">
+            <%= render "shared/sidenav" %>
+          </nav>
+        <% end %>
 
         <!-- CONTEÚDO PRINCIPAL -->
-        <div class="col-md-10 my-4">
+        <div class="<%= controller_name == 'conversations' ? 'col-md-10 my-4' : 'col-12 my-4' %>"
+             style="background-color:#f7f1e7 !important;">
+
           <%= render "shared/flashes" %>
 
-          <!-- Botão para abrir a sidebar em telas pequenas -->
-          <%= link_to "#",
-                      class: "d-md-none nav-link text-dark mb-3",
-                      data: { action: "click->toggle#call", toggle_target: "show" } do %>
-            <i class="fa-regular fa-square-caret-right"></i>
-            Abrir menu
+          <!-- Botão mobile para abrir sidebar -->
+          <% if controller_name == "conversations" %>
+            <%= link_to "#",
+                class: "d-md-none nav-link text-dark mb-3",
+                data: { action: "click->toggle#call", toggle_target: "show" } do %>
+                <i class="fa-regular fa-square-caret-right"></i>
+                Abrir menu
+            <% end %>
           <% end %>
 
           <%= yield %>
         </div>
+
       </div>
     </div>
+
   </body>
 </html>

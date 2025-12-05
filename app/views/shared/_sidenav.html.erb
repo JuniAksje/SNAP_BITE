@@ -1,12 +1,18 @@
-<ul class="position-sticky sticky-top nav flex-column">
-  <li class="nav-item">
-    <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
-      <i class="fa-regular fa-square-caret-left"></i>
-    <% end %>
-  </li>
-  <% restaurants.each do |restaurant| %>
-    <li class="nav-item">
-      <%= link_to restaurant.city, restaurant_path(restaurant), class: "nav-link text-dark" %>
-    </li>
-  <% end %>
-</ul>
+<div class="chat-sidebar">
+
+  <ul class="sidebar-list">
+    <li><%= link_to "Restaurantes", restaurants_path %></li>
+    <li><%= link_to "Página inicial", root_path %></li>
+  </ul>
+
+  <ul class="sidebar-list">
+    <li><%= link_to "Novo chat", conversations_path %></li>
+  </ul>
+
+
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-gear"></i>
+    <span>Configuração</span>
+  </div>
+
+</div>

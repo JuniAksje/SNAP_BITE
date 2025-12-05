@@ -1,32 +1,47 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="top-navbar" style="background-color: #f7f1e7;">
   <div class="container-fluid">
+
     <%= link_to restaurants_path, class: "navbar-brand" do %>
+      <i class="fa-solid fa-utensils"></i>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
+
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+
+          <li class="nav-item">
+            <%= link_to "Meus Chats", conversations_path, class: "nav-link" %>
+          </li>
+
           <li class="nav-item dropdown">
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Conta
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to "Sair", destroy_user_session_path,
+                  data: { turbo_method: :delete },
+                  class: "dropdown-item" %>
+              </li>
+            </ul>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+
         <% end %>
+
       </ul>
     </div>
+
   </div>
 </div>

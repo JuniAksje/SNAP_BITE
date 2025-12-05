@@ -10,7 +10,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.create!(user: current_user)
+    @conversation = Conversation.create(user: current_user)
     redirect_to conversation_path(@conversation)
+  end
+
+  def destroy
+    @conversation = current_user.conversations.find(params[:id])
+    @conversation.destroy
+    redirect_to conversations_path, notice: "Chat excluído com sucesso!"
   end
 end
