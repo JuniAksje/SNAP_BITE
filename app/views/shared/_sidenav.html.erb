@@ -1,18 +1,18 @@
-<ul class="sidenav nav" data-toggle-target="sidebar">
-  <li class="nav-item w-100">
-    <%= link_to "#",
-      class: "nav-link text-secondary d-flex justify-content-end",
-      data: { action: "click->toggle#toggleSidebar" } do %>
-        <i class="fa-solid fa-square-caret-left sidebar-icon"></i>
-    <% end %>
-  </li>
+<div class="chat-sidebar">
 
-    <% restaurants.each do |restaurant| %>
-      <% bg = @city_backgrounds[restaurant.city] %>
-      <li class="nav-item sidebar"
-        style="background-image: url('<%= asset_path(bg) %>')">
-        <%= link_to restaurant.city, restaurant_path(restaurant), class: "nav-link text-dark" %>
-      </li>
-    <% end %>
+  <ul class="sidebar-list">
+    <li><%= link_to "Restaurantes", restaurants_path %></li>
+    <li><%= link_to "Página inicial", root_path %></li>
+  </ul>
 
-</ul>
+  <ul class="sidebar-list">
+    <li><%= link_to "Novo chat", conversations_path %></li>
+  </ul>
+
+
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-gear"></i>
+    <span>Configuração</span>
+  </div>
+
+</div>
