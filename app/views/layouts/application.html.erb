@@ -46,6 +46,19 @@
                 Abrir menu
             <% end %>
           <% end %>
+          <div class="banner">
+            <div class="hero-content">
+              <h1 class="snapbite-title">Desfrute a cidade!</h1>
+              <p>Escolha em qual pérola da cidade viver uma experiência gastronômica ideal para você!</p>
+              <div class="button-group">
+                <%= link_to "Ver Restaurantes", restaurants_path, class: "btn btn-primary" %>
+                <%= link_to "Meus Chats", conversations_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+          <%= render "shared/flashes" %>
+
+
 
           <%= yield %>
         </div>
