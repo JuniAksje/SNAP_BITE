@@ -10,14 +10,4 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-@import "components/banner";
-@import "components/sidenav";
-
-@import "pages/home";
-@import "components/buttons";
-
-.snapbite-title {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-}
+@import "pages/chat";

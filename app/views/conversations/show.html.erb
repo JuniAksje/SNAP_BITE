@@ -1,29 +1,49 @@
-<div class="container mt-4">
-  <%= link_to "← Voltar para a página inicial", root_path, class: "btn btn-link p-0 mb-3" %>
+<div class="chat-layout">
 
-  <h1 class="mb-3"><%= @conversation.title.presence || "Chat de restaurantes" %></h1>
-
-  <div class="border rounded p-3" style="min-height: 200px;">
-    <% if @messages.any? %>
-      <% @messages.each do |message| %>
-        <p class="mb-2">
-          <strong><%= message.role == "user" ? "Você" : "IA" %>:</strong>
-          <%= simple_format(message.content) %>
-        </p>
-      <% end %>
-    <% else %>
-      <p class="text-muted mb-3">
-        Pergunte algo aqui.
-      </p>
-    <% end %>
-
-    <%= form_with model: [@conversation, @message], local: true do |f| %>
-      <div class="mb-2">
-        <%= f.label :content, "Sua mensagem" %>
-        <%= f.text_area :content, rows: 3, class: "form-control" %>
-      </div>
-
-      <%= f.submit "Enviar", class: "btn btn-primary" %>
-    <% end %>
+  <!-- Sidebar -->
+  <div class="chat-sidebar">
+    <h4>Menu</h4>
+    <ul>
+      <li><%= link_to "Meus Chats", conversations_path %></li>
+      <li><%= link_to "Restaurantes", restaurants_path %></li>
+      <li><%= link_to "Página Inicial", root_path %></li>
+    </ul>
   </div>
+
+  <!-- Conteúdo principal -->
+  <div class="chat-content">
+
+    <%= link_to "← Voltar", conversations_path, class: "btn btn-link p-0 mb-3" %>
+
+    <h1 class="mb-3 fw-bold">
+      <%= @conversation.title.presence || "Chat de restaurantes" %>
+    </h1>
+
+    <div class="chat-box">
+
+      <% if @messages.any? %>
+        <% @messages.each do |message| %>
+          <p class="mb-2">
+            <strong><%= message.role == "user" ? "Você" : "IA" %>:</strong>
+            <%= simple_format(message.content) %>
+          </p>
+        <% end %>
+      <% else %>
+        <p class="text-muted mb-3">Pergunte algo aqui…</p>
+      <% end %>
+
+      <%= form_with(model: [@conversation, @message], local: true) do |f| %>
+
+        <div class="mb-3">
+          <%= f.text_area :content, rows: 3, class: "form-control", placeholder: "Digite sua mensagem..." %>
+        </div>
+
+        <%= f.submit "Enviar", class: "btn btn-primary" %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
 </div>

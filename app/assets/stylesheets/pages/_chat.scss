@@ -1,0 +1,180 @@
+
+/* LAYOUT GERAL DO CHAT */
+.chat-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f7f1e7 !important;   /* FUNDO PRINCIPAL */
+}
+
+/* SIDEBAR (LATERAL CINZA) */
+.chat-sidebar {
+  width: 220px;
+  background: #f7f1e7;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.chat-sidebar ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.chat-sidebar li {
+  color: #000 !important;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.chat-sidebar a {
+  color: #000 !important;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.chat-sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé da sidebar */
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar-footer i {
+  font-size: 18px;
+}
+
+.sidebar-footer span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* CONTEÚDO DO CHAT */
+.chat-content {
+  flex: 1;
+  padding: 25px 30px;
+  margin-left: 20px;     /* afasta do menu lateral */
+  background-color: #f7f1e7 !important;   /* FUNDO LISO */
+}
+
+/* BOTÃO VOLTAR */
+.btn-back {
+  color: #666;
+  font-size: 20px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.btn-back:hover {
+  color: #333;
+}
+
+/* CARDS DOS CHATS */
+.chat-card {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Título */
+.chat-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Horário */
+.chat-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #777;
+  font-size: 14px;
+}
+/* BOTÕES (Acessar / Excluir) */
+.btn-open,
+.btn-delete {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  transition: 0.25s;
+}
+
+/* Abrir */
+.btn-open {
+  background: #1c5ec2;
+  color: white;
+}
+
+.btn-open:hover {
+  background: #021633;
+  color: white;
+}
+
+/* Excluir */
+.btn-delete {
+  background: #f13040;
+  color: #f0c1c6;
+}
+
+.btn-delete:hover {
+  background: #501703;
+  color: rgb(236, 204, 204);
+}
+/* BARRA DE PESQUISA */
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+/* FORÇA O FUNDO DE TODAS AS PÁGINAS DO CHAT */
+body.controller-conversations,
+html.controller-conversations {
+  background-color: #f7f1e7 !important;
+}
+
+/* Remove qualquer container branco que o Rails cria */
+.chat-layout,
+.chat-content {
+  background-color: #f7f1e7 !important;
+}
+
+html, body{
+   background-color: #f7f1e7 !important;
+}
+
+.full-bg {
+  background-color:#f7f1e7 !important;
+}
+
+.container-fluid, .row{
+  background-color: #f7f1e7 !important;
+}
+
+#top-navbar {
+  background-color: #f7f1e7 !important;
+  border-bottom:  solid #e0d7cd;
+}
