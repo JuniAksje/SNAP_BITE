@@ -1,13 +1,39 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-custom {
+  background-color: #FA4632; /* cor da sua logo */
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+/* Centraliza a logo */
+.navbar-logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-logo-img {
+  height: 50px; /* ajuste como quiser */
+}
+
+.navbar-custom .container-fluid {
+  display: flex;
+  justify-content: center !important;
+  position: relative;
+}
+
+/* Links brancos, negrito e em MAIÚSCULO */
+.nav-link-custom {
+  color: white !important;
+  font-weight: bold;
+  font-size: small;
+  text-transform: uppercase;
+  margin: 0 15px;
+}
+
+/* Remove bordas e sombras */
+.navbar-custom .navbar-toggler {
+  border-color: rgba(255,255,255,0.6);
+}
+
+.navbar-custom .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
 }
 
