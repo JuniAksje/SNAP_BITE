@@ -1,12 +1,12 @@
 .sidenav {
-  position: fixed;
+  // position: fixed;
   top: 0;
   left: 0;
-  width: 240px;
+  // width: 240px;
   height: 100vh;
   background: rgba(255,255,255,0.95);
   z-index: 10;
-  padding-top: 20px;
+  // padding-top: 20px;
   transition: width 0.3s ease;
 }
 
@@ -18,7 +18,7 @@
 
 /* Expande o conteúdo ao fechar a sidebar */
 .main-content {
-  margin-left: 240px;
+  // margin-left: 240px;
   transition: margin-left 0.3s ease;
 }
 
@@ -34,4 +34,11 @@
 
 .banner.full-width {
   padding-left: 0;
+}
+.sidebar-expanded {
+    font-weight: bold;
+    color: white !important;
+    text-transform: uppercase;
+    display: block;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
