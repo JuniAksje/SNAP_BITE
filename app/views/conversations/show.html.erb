@@ -1,29 +1,34 @@
-<div class="container mt-4">
-  <%= link_to "← Voltar para a página inicial", root_path, class: "btn btn-link p-0 mb-3" %>
+<div class="container mt-4 conversation-container">
 
-  <h1 class="mb-3"><%= @conversation.title.presence || "Chat de restaurantes" %></h1>
+  <%= link_to "←", root_path, class: "btn btn-back mb-3" %>
 
-  <div class="border rounded p-3" style="min-height: 200px;">
+  <%# <h1 class="conversation-title mb-3">
+    <%= @conversation.title.presence || "Deixe-nos te ajudar a decidir!" %>
+  <%# </h1> %>
+
+  <div class="conversation-box border rounded p-3">
+
     <% if @messages.any? %>
       <% @messages.each do |message| %>
-        <p class="mb-2">
-          <strong><%= message.role == "user" ? "Você" : "IA" %>:</strong>
+        <p class="message-line mb-2">
+          <strong class="message-role"><%= message.role == "user" ? "Você" : "SnapBite" %>:</strong>
           <%= simple_format(message.content) %>
         </p>
       <% end %>
     <% else %>
       <p class="text-muted mb-3">
-        Pergunte algo aqui.
+        Onde você gostaria de comer?
       </p>
     <% end %>
 
-    <%= form_with model: [@conversation, @message], local: true do |f| %>
+    <%= form_with model: [@conversation, @message], local: true, html: { class: "message-form" } do |f| %>
       <div class="mb-2">
-        <%= f.label :content, "Sua mensagem" %>
-        <%= f.text_area :content, rows: 3, class: "form-control" %>
+        <%= f.label :content, "Sua mensagem", class: "form-label custom-label" %>
+        <%= f.text_area :content, rows: 2, class: "form-control message-input" %>
       </div>
 
       <%= f.submit "Enviar", class: "btn btn-primary" %>
     <% end %>
+
   </div>
 </div>

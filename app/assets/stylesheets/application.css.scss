@@ -21,3 +21,83 @@
   font-family: "Roboto", sans-serif;
   font-weight: 700;
 }
+/* Fonte suave e moderna */
+.conversation-container {
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Botão voltar */
+.btn-back {
+  background: transparent;
+  color: #555;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Título menor e mais elegante */
+.conversation-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+/* Caixa de conversa mais limpa */
+.conversation-box {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px !important;
+}
+
+/* Linha de cada mensagem */
+.message-line {
+  font-size: 0.95rem;
+  line-height: 1.35rem;
+}
+
+.message-role {
+  color: #555;
+  font-weight: 700;
+}
+
+/* Formulário mais moderno */
+.message-form {
+  margin-top: 15px;
+}
+
+/* Label */
+.custom-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Caixa de texto menor e mais elegante */
+.message-input {
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  resize: none;
+  border: 1px solid #ccc;
+}
+
+.message-input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+/* Botão Enviar */
+.btn-send {
+  background-color: #6c63ff;
+  color: white;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+}
+
+.btn-send:hover {
+  background-color: #5a53d6;
+}
