@@ -1,0 +1,23 @@
+.sidebar {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Margem entre cada sidebar item */
+  margin-bottom: 10px;
+
+  /* Espaçamento interno para melhorar a leitura */
+  padding: 12px;
+
+  border-radius: 6px;
+  overflow: hidden
+}
+
+.sidebar .nav-link {
+  font-weight: bold;     /* negrito */
+  color: white !important; /* texto branco */
+  text-align: center;         /* centraliza o texto */
+  text-transform: uppercase;  /* coloca tudo em maiúsculas */
+  display: block;             /* garante alinhamento correto */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
